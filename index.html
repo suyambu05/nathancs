@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://kit.fontawesome.com/8c6120848e.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
             padding-top: 90px;
             font-family: "Be Vietnam Pro", Arial, sans-serif;
-            background-color: #F8F9FA; 
+            background-color: #F8F9FA;
             color: #555555;
         }
+
         .carousel-item {
             height: 70vh;
         }
+
         .carousel-item img {
             height: 100%;
             width: 100%;
-            object-fit: contain; /* Ensures the whole image is visible */
-            background-color: black; /* Adds a background if the image has gaps */
+            object-fit: contain;
+            /* Ensures the whole image is visible */
+            background-color: black;
+            /* Adds a background if the image has gaps */
         }
+
         .hero {
             background: url('school-banner.jpg') no-repeat center center/cover;
             height: 400px;
@@ -34,38 +42,63 @@
             justify-content: center;
             text-align: center;
         }
+
         /* Hero Section Background with Text Styling */
         .hero-section {
-            background-color: #2E8B57; /* Green Background for Hero Section */
+            background-color: #2E8B57;
+            /* Green Background for Hero Section */
             padding: 50px 0;
             text-align: center;
             color: white;
         }
+
         .hero-section h1 {
-            background: #FFA500; /* Orange Background for Text */
+            background: #FFA500;
+            /* Orange Background for Text */
             display: inline-block;
             padding: 10px 20px;
             border-radius: 5px;
         }
+
         .hero-section p {
             background: rgba(255, 255, 255, 0.2);
             display: inline-block;
             padding: 5px 15px;
             border-radius: 5px;
         }
-        .navbar { background-color: #03094B; }
-        .navbar-brand, .nav-link { color: white !important; }
-        .btn-primary { background-color: #FFA500; border: none; }
-        .btn-primary:hover { background-color: #CC8400; }
-        .section-title { color: #03094B; }
+
+        .navbar {
+            background-color: #03094B;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+        }
+
+        .btn-primary {
+            background-color: #FFA500;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #CC8400;
+        }
+
+        .section-title {
+            color: #03094B;
+        }
+
         .hero h1 {
             font-size: 3rem;
             background: rgba(0, 0, 0, 0.5);
             padding: 10px;
         }
+
         .section-padding {
             padding: 60px 0;
         }
+
         .gallery img {
             width: 100%;
             height: 200px;
@@ -73,143 +106,161 @@
             border-radius: 10px;
             transition: transform 0.3s ease-in-out;
         }
+
         .gallery img:hover {
             transform: scale(1.05);
         }
+
         .stacked-text {
-    display: flex;
-    flex-direction: column; /* Stack spans vertically */
-    align-items: left; /* Center the text */
-    text-align: left;
-}
+            display: flex;
+            flex-direction: column;
+            /* Stack spans vertically */
+            align-items: left;
+            /* Center the text */
+            text-align: left;
+        }
 
-.large-text {
-    font-size: 2rem; /* Bigger font */
-    font-weight: bold;
-}
+        .large-text {
+            font-size: 2rem;
+            /* Bigger font */
+            font-weight: bold;
+        }
 
-.small-text {
-    font-size: 1rem; /* Smaller font */
-}
+        .small-text {
+            font-size: 1rem;
+            /* Smaller font */
+        }
 
         /* Wave Separator */
         .wave {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwMCA1MCI+PHBhdGggZmlsbD0iIzAzMDk0QiIgZD0iTTAgMjVoMjAwYzE1MCAwIDI4MC0yNCA0MDAtMjUgMTIwIDAgMjUwIDI1IDQwMCAyNSBoMjAwVjBIMFYyNXoiPjwvcGF0aD48L3N2Zz4=') no-repeat center;
-    background-size: cover;
-}
-.footer {
-    background-color: #03094B; 
-    color: white; 
-    text-align: center; 
-    padding: 20px 0;
-}
+            position: relative;
+            width: 100%;
+            height: 50px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwMCA1MCI+PHBhdGggZmlsbD0iIzAzMDk0QiIgZD0iTTAgMjVoMjAwYzE1MCAwIDI4MC0yNCA0MDAtMjUgMTIwIDAgMjUwIDI1IDQwMCAyNSBoMjAwVjBIMFYyNXoiPjwvcGF0aD48L3N2Zz4=') no-repeat center;
+            background-size: cover;
+        }
 
-.marquee-container {
-  display: flex;
-  align-items: center;
-  background: #f8d210; /* Background for scrolling text */
-  font-weight: bold;
-  overflow: hidden;
-}
+        .footer {
+            background-color: #03094B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
 
-  .marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    background: #f8d210;
-    font-weight: bold;
-    position: relative;
-  }
+        .marquee-container {
+            display: flex;
+            align-items: center;
+            background: #f8d210;
+            /* Background for scrolling text */
+            font-weight: bold;
+            overflow: hidden;
+        }
 
-  .marquee-content {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 10s linear infinite;
-  }
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: #f8d210;
+            font-weight: bold;
+            position: relative;
+        }
 
-  .marquee-seperator {
-    color: red;
-    font-weight: bold;
-    align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
 
-  .static-text {
-  flex-shrink: 0; /* Keeps "Latest Update:" static */
-  background: #03094B; /* Different background color */
-  color: white;
-  padding: 10px 15px;
-  font-weight: bold;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Creates the slanted right edge */
-}
+        .marquee-seperator {
+            color: red;
+            font-weight: bold;
+            align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
-  @keyframes marquee {
-    from { transform: translateX(100vw); } /* Start fully off-screen (100% viewport width) */
-    to { transform: translateX(-100%); } /* Move fully left */
-  }
+        .static-text {
+            flex-shrink: 0;
+            /* Keeps "Latest Update:" static */
+            background: #03094B;
+            /* Different background color */
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+            /* Creates the slanted right edge */
+        }
 
-.alert-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
+        @keyframes marquee {
+            from {
+                transform: translateX(100vw);
+            }
 
-.alert-box {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
+            /* Start fully off-screen (100% viewport width) */
+            to {
+                transform: translateX(-100%);
+            }
 
-/* Close Button (X) */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
+            /* Move fully left */
+        }
 
-/* Style for icon container */
-.icon-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    background: #03094B;
-    border-radius: 50%;
-    color: white;
-    font-size: 24px;
-    margin: 0 auto 10px;
-    transition: transform 0.3s ease-in-out;
-}
+        .alert-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Hover effect - enlarges the icon */
-.icon-circle:hover {
-    transform: scale(1.2);
-}
+        .alert-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
 
+        /* Close Button (X) */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
 
+        /* Style for icon container */
+        .icon-circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            background: #03094B;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            margin: 0 auto 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effect - enlarges the icon */
+        .icon-circle:hover {
+            transform: scale(1.2);
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
@@ -220,7 +271,7 @@
                 <div class="stacked-text flex-grow-1">
                     <span class="large-text d-block">Nathan Central School</span>
                     <span class="small-text d-block">(Affiliated to CBSE, New Delhi) School Code: 33294100044</span>
-                </div>      
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -238,142 +289,154 @@
     </nav>
 
     <!-- Hero Section with Carousel -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="banner/banner1.jpg" alt="School Image 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Welcome to Our School</h1>
+                    <p>Providing quality education for a brighter future.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="banner/banner2.jpg" alt="School Image 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Engaging Learning Environment</h1>
+                    <p>Empowering students to achieve excellence.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="banner/banner3.jpg" alt="School Image 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Building the Future</h1>
+                    <p>Innovative education for lifelong success.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="banner/banner1.jpg" alt="School Image 1">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Welcome to Our School</h1>
-                <p>Providing quality education for a brighter future.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="banner/banner2.jpg" alt="School Image 2">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Engaging Learning Environment</h1>
-                <p>Empowering students to achieve excellence.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="banner/banner3.jpg" alt="School Image 3">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Building the Future</h1>
-                <p>Innovative education for lifelong success.</p>
-            </div>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
-<div class="marquee-container">
-  <span class="static-text">Latest Update &nbsp;&nbsp;</span>
-<div class="marquee">
-  <div class="marquee-content">
-    Upcoming PTM event on 25th April 2025, Welcome dear parents!
-    <span class="fa fa-star marquee-seperator"></span> 
-    School will reopen on 3rd of June, 2025!
-  </div>
-</div>
-</div>
+    <div class="marquee-container">
+        <span class="static-text">Latest Update &nbsp;&nbsp;</span>
+        <div class="marquee">
+            <div class="marquee-content">
+                Upcoming PTM event on 25th April 2025, Welcome dear parents!
+                <span class="fa fa-star marquee-seperator"></span>
+                School will reopen on 3rd of June, 2025!
+            </div>
+        </div>
+    </div>
 
 
     <!-- About Section -->
     <section id="about" class="section-padding">
         <div class="container text-center">
             <h2>About Us</h2>
-            <p>Welcome to Nathan Central School, your premier educational institution nestled near Koodankulam Village! 🏫 With a legacy of excellence spanning two years, we're dedicated to nurturing young minds and fostering holistic development. Our state-of-the-art facilities, experienced faculty, and innovative curriculum ensure a vibrant learning environment for students to thrive. From academics to extracurricular activities, we prioritize individual growth and academic achievement. Join us in shaping the leaders of tomorrow!</p>
+            <p>Welcome to Nathan Central School, your premier educational institution nestled near Koodankulam Village!
+                🏫 With a legacy of excellence spanning two years, we're dedicated to nurturing young minds and
+                fostering holistic development. Our state-of-the-art facilities, experienced faculty, and innovative
+                curriculum ensure a vibrant learning environment for students to thrive. From academics to
+                extracurricular activities, we prioritize individual growth and academic achievement. Join us in shaping
+                the leaders of tomorrow!</p>
         </div>
     </section>
 
     <div class="wave"></div>
 
     <!-- Campus Section -->
-<section id="facilities" class="section-padding">
-    <div class="container text-center">
-        <h2 style="padding-bottom: 20px;">Campus and Facility</h2>
-        <div class="row">
-            <!-- Infrastructure -->
-            <div class="col-md-4 more-link" data-title="Infrastructure">
-                <div class="icon-circle">
-                <i class="fa fa-building fa-2x"></i>
-            </div>
-                <h5 style="padding-top: 10px;">Infrastructure</h5>
-                <p>Our campus boasts modern classrooms, labs, and comfortable student housing.
-                <a href="#" class="more-link" data-title="Infrastructure">more..</a></p>
+    <section id="facilities" class="section-padding">
+        <div class="container text-center">
+            <h2 style="padding-bottom: 20px;">Campus and Facility</h2>
+            <div class="row">
+                <!-- Infrastructure -->
+                <div class="col-md-4 more-link" data-title="Infrastructure">
+                    <div class="icon-circle">
+                        <i class="fa fa-building fa-2x"></i>
+                    </div>
+                    <h5 style="padding-top: 10px;">Infrastructure</h5>
+                    <p>Our campus boasts modern classrooms, labs, and comfortable student housing.
+                        <a href="#" class="more-link" data-title="Infrastructure">more..</a>
+                    </p>
 
+                </div>
+                <!-- Transport -->
+                <div class="col-md-4 more-link" data-title="Transport">
+                    <div class="icon-circle">
+                        <i class="fa fa-bus fa-2x"></i>
+                    </div>
+                    <h5 style="padding-top: 10px;">Transport</h5>
+                    <p>Convenient transport options ensure easy access to the campus from all parts of the city.
+                        <a href="#" class="more-link" data-title="Transport">more..</a>
+                    </p>
+                </div>
+                <!-- Sports -->
+                <div class="col-md-4 more-link" data-title="Sports">
+                    <div class="icon-circle">
+                        <i class="fa fa-futbol fa-2x"></i>
+                    </div>
+                    <h5 style="padding-top: 10px;">Sports</h5>
+                    <p>We provide state-of-the-art sports facilities for a wide variety of games and activities.
+                        <a href="#" class="more-link" data-title="Sports">more..</a>
+                    </p>
+                </div>
             </div>
-            <!-- Transport -->
-            <div class="col-md-4 more-link" data-title="Transport">
-                <div class="icon-circle">
-                <i class="fa fa-bus fa-2x"></i>
-            </div>
-                <h5 style="padding-top: 10px;">Transport</h5>
-                <p>Convenient transport options ensure easy access to the campus from all parts of the city.
-                <a href="#" class="more-link" data-title="Transport">more..</a></p>
-            </div>
-            <!-- Sports -->
-            <div class="col-md-4 more-link" data-title="Sports">
-                <div class="icon-circle">
-                <i class="fa fa-futbol fa-2x"></i>
-            </div>
-                <h5 style="padding-top: 10px;">Sports</h5>
-                <p>We provide state-of-the-art sports facilities for a wide variety of games and activities. 
-                    <a href="#" class="more-link" data-title="Sports">more..</a></p>
+            <div class="row mt-4">
+                <!-- Well-Qualified Faculty -->
+                <div class="col-md-4 more-link" data-title="Well-Qualified Faculty">
+                    <div class="icon-circle">
+                        <i class="fa fa-chalkboard-teacher fa-2x"></i>
+                    </div>
+                    <h5 style="padding-top: 10px;">Well-Qualified Faculty</h5>
+                    <p>Our experienced and dedicated faculty members ensure high-quality education and guidance.
+                        <a href="#" class="more-link" data-title="Well-Qualified Faculty">more..</a>
+                    </p>
+                </div>
+                <!-- Library -->
+                <div class="col-md-4 more-link" data-title="Library">
+                    <div class="icon-circle">
+                        <i class="fa fa-book fa-2x"></i>
+                    </div>
+                    <h5 style="padding-top: 10px;">Library</h5>
+                    <p>A vast collection of books, research papers, and digital resources for students and faculty.
+                        <a href="#" class="more-link" data-title="Library">more..</a>
+                    </p>
+                </div>
+                <!-- Cafeteria -->
+                <div class="col-md-4 more-link" data-title="Playground & Outdoor Activities">
+                    <div class="icon-circle">
+                        <i class="fa fa-tree fa-2x"></i>
+                    </div>
+                    <h5 style="padding-top: 10px;">Playground & Outdoor Activities</h5>
+                    <p>Large playgrounds and dedicated spaces for outdoor activities and physical education.
+                        <a href="#" class="more-link" data-title="Playground & Outdoor Activities">more..</a>
+                    </p>
+                </div>
             </div>
         </div>
-         <div class="row mt-4">
-            <!-- Well-Qualified Faculty -->
-            <div class="col-md-4 more-link" data-title="Well-Qualified Faculty">
-                <div class="icon-circle">
-                <i class="fa fa-chalkboard-teacher fa-2x"></i>
-            </div>
-                <h5 style="padding-top: 10px;">Well-Qualified Faculty</h5>
-                <p>Our experienced and dedicated faculty members ensure high-quality education and guidance.
-                <a href="#" class="more-link" data-title="Well-Qualified Faculty">more..</a></p>
-            </div>
-            <!-- Library -->
-            <div class="col-md-4 more-link" data-title="Library">
-                <div class="icon-circle">
-                <i class="fa fa-book fa-2x"></i>
-            </div>
-                <h5 style="padding-top: 10px;">Library</h5>
-                <p>A vast collection of books, research papers, and digital resources for students and faculty.
-                <a href="#" class="more-link" data-title="Library">more..</a></p>
-            </div>
-            <!-- Cafeteria -->
-            <div class="col-md-4 more-link" data-title="Playground & Outdoor Activities">
-                <div class="icon-circle">
-                <i class="fa fa-tree fa-2x"></i>
-            </div>
-                <h5 style="padding-top: 10px;">Playground & Outdoor Activities</h5>
-                <p>Large playgrounds and dedicated spaces for outdoor activities and physical education.
-                <a href="#" class="more-link" data-title="Playground & Outdoor Activities">more..</a></p>
-            </div>
+    </section>
+
+    <!-- Borderless Alert (Popup) -->
+    <div id="custom-alert" class="alert-overlay">
+        <div class="alert-box">
+            <button class="close-btn" onclick="closeAlert()">✖</button>
+            <h3 id="alert-title"></h3>
         </div>
     </div>
-</section>
 
-<!-- Borderless Alert (Popup) -->
-<div id="custom-alert" class="alert-overlay">
-    <div class="alert-box">
-        <button class="close-btn" onclick="closeAlert()">✖</button>
-        <h3 id="alert-title"></h3>
-    </div>
-</div>
-
-<div class="wave"></div>
+    <div class="wave"></div>
 
 
     <!-- Fees Structure Section -->
@@ -518,77 +581,81 @@
     </section>
 
 
-<footer class="text-light py-4 footer">
-    <div class="container">
-        <div class="row">
-            <!-- Contact Info -->
-            <div class="col-md-4">
-                <h5>Contact Us</h5>
-                <ul class="list-unstyled">
-                    <li><i class="fas fa-phone"></i> +91 83009 31841</li>
-                    <li><i class="fas fa-envelope"></i> nathancentralschool@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> 
-                        <span>Anjugramam - Tiruchendur Main Road</span><br>
-                        <span>(Near Vairavikinaru Vilakku)</span><br>
-                        <span>Koodankulam, Tirunelveli</span><br>
-                        <span>Tamil Nadu, India</span>
+    <footer class="text-light py-4 footer">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone"></i> +91 83009 31841</li>
+                        <li><i class="fas fa-envelope"></i> nathancentralschool@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            <span>Anjugramam - Tiruchendur Main Road</span><br>
+                            <span>(Near Vairavikinaru Vilakku)</span><br>
+                            <span>Koodankulam, Tirunelveli</span><br>
+                            <span>Tamil Nadu, India</span>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+
+                <!-- Google Map -->
+                <div class="col-md-4">
+                    <h5>Our Location</h5>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.0662922148495!2d77.71538207566996!3d8.19607710146911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b048f0024a59425%3A0xaec5b87a45608fb5!2sNathan%20Central%20School!5e0!3m2!1sen!2sin!4v1743524777818!5m2!1sen!2sin"
+                        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="https://www.facebook.com/nathanschoolkoodal" target="_blank" class="text-light me-3">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@NathanCentralSchool" target="_blank" class="text-light me-3">
+                        <i class="fab fa-youtube fa-2x"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Google Map -->
-            <div class="col-md-4">
-                <h5>Our Location</h5>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.0662922148495!2d77.71538207566996!3d8.19607710146911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b048f0024a59425%3A0xaec5b87a45608fb5!2sNathan%20Central%20School!5e0!3m2!1sen!2sin!4v1743524777818!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <!-- Social Media -->
-            <div class="col-md-4">
-                <h5>Follow Us</h5>
-                <a href="https://www.facebook.com/nathanschoolkoodal" target="_blank" class="text-light me-3"> 
-                    <i class="fab fa-facebook fa-2x"></i>
-                </a>
-                <a href="https://www.youtube.com/@NathanCentralSchool" target="_blank" class="text-light me-3"> 
-                    <i class="fab fa-youtube fa-2x"></i>
-                </a>
+            <hr class="bg-light">
+            <div class="text-center">
+                &copy; 2025 Nathan Central School | All Rights Reserved
             </div>
         </div>
-
-        <hr class="bg-light">
-        <div class="text-center">
-            &copy; 2025 Nathan Central School | All Rights Reserved
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JavaScript Code -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const moreLinks = document.querySelectorAll(".more-link");
-    const alertBox = document.getElementById("custom-alert");
-    const alertTitle = document.getElementById("alert-title");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const moreLinks = document.querySelectorAll(".more-link");
+            const alertBox = document.getElementById("custom-alert");
+            const alertTitle = document.getElementById("alert-title");
 
-    moreLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            alertTitle.textContent = this.getAttribute("data-title");
-            alertBox.style.display = "flex";
+            moreLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    alertTitle.textContent = this.getAttribute("data-title");
+                    alertBox.style.display = "flex";
+                });
+            });
+
+            // Close alert when pressing "Esc"
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeAlert();
+                }
+            });
         });
-    });
 
-    // Close alert when pressing "Esc"
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            closeAlert();
+        function closeAlert() {
+            document.getElementById("custom-alert").style.display = "none";
         }
-    });
-});
 
-function closeAlert() {
-    document.getElementById("custom-alert").style.display = "none";
-}
-
-</script>
+    </script>
 </body>
+
 </html>
