@@ -24,7 +24,7 @@
             flex-direction: column; /* Stack children vertically */
             min-height: 100vh; /* Body should be at least viewport height */
             margin: 0; /* Remove default body margin */
-            padding-top: 90px; /* Keep existing padding for fixed nav */
+            padding-top: 85px; /* Keep existing padding for fixed nav */
             font-family: "Be Vietnam Pro", Arial, sans-serif;
             background-color: #F8F9FA;
             color: #555555;
@@ -98,6 +98,25 @@
         .small-text {
             font-size: 1rem;
         }
+
+         @media (max-width: 767.98px) {
+        .large-text {
+            font-size: 1.25rem; /* Smaller size for mobile screens */
+        }
+        /* You might also want to adjust the small-text if it's too big */
+        .small-text {
+            font-size: 0.8rem; /* Example: make it slightly smaller too */
+        }
+        .navbar-brand .stacked-text {
+            margin-left: 5px; /* Adjust spacing if needed on small screens */
+        }
+        .navbar-brand img {
+            height: 45px !important; /* Make logo slightly smaller too */
+        }
+        body {
+            padding-top: 70px; /* Adjust padding for smaller screens */
+        }
+    }
 
         .wave {
             position: relative;
@@ -369,6 +388,12 @@
             const navLinks = document.querySelectorAll('.nav-link[data-target]');
             const brandLink = document.querySelector('.navbar-brand[data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html"]');
 
+            // ADD THIS NEW LINE: Get a reference to the Bootstrap collapse element
+        const navbarCollapse = document.getElementById('navbarNav');
+        // Initialize the Bootstrap Collapse object
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+        
             // Function to initialize carousel after it's loaded
             function initializeCarousel() {
                 const heroCarouselElement = document.getElementById('heroCarousel');
@@ -456,6 +481,10 @@
                     e.preventDefault();
                     const target = this.getAttribute('data-target');
                     loadContent(target);
+
+                    if (navbarCollapse.classList.contains('show')) {
+                    bsCollapse.hide();
+                }
                 });
             });
 
@@ -463,6 +492,10 @@
             brandLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 loadContent('https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html');
+
+                if (navbarCollapse.classList.contains('show')) {
+                bsCollapse.hide();
+            }
             });
 
             // Load home content initially when the page loads
