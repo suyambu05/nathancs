@@ -70,6 +70,13 @@
             color: white !important;
         }
 
+        .nav-link.active-link {
+            background-color: #f8d210;
+            border-radius: 5px;
+            color: #03094B !important;
+            padding: 8px 15px;
+        }
+
         .btn-primary {
             background-color: #FFA500;
             border: none;
@@ -468,6 +475,16 @@
                         initializeCarousel();
                     }
 
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-link');
+                    });
+
+                    // Add 'active-link' to the currently active link
+                    const activeLink = document.querySelector(`.nav-link[href="${target}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active-link');
+                    }
+
                 } catch (error) {
                     console.error('Failed to load content:', error);
                     mainContentDiv.innerHTML = `<p class="text-danger text-center section-padding">Error loading content. Please try again later.</p>`;
@@ -475,6 +492,9 @@
             }
 
             function showNotFoundPage() {
+                navLinks.forEach(link => {
+                        link.classList.remove('active-link');
+                    });
                 mainContentDiv.innerHTML = `
                     <section class="container text-center section-padding">
                         <h1 class="section-title mb-4">404 - Page Not Found</h1>
