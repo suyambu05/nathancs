@@ -14,8 +14,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+
+         html {
+            height: 100%; /* Ensure html takes full height */
+        }
+
         body {
-            padding-top: 90px;
+             display: flex; /* Make body a flex container */
+            flex-direction: column; /* Stack children vertically */
+            min-height: 100vh; /* Body should be at least viewport height */
+            margin: 0; /* Remove default body margin */
+            padding-top: 90px; /* Keep existing padding for fixed nav */
             font-family: "Be Vietnam Pro", Arial, sans-serif;
             background-color: #F8F9FA;
             color: #555555;
@@ -92,7 +101,8 @@
             height: 50px;
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwMCA1MCI+PHBhdGggZmlsbD0iIzAzMDk0QiIgZD0iTTAgMjVoMjAwYzE1MCAwIDI4MC0yNCA0MDAtMjUgMTIwIDAgMjUwIDI1IDQwMCAyNSBoMjAwVjBIMFYyNXoiPjwvcGF0aD48L3N2Zz4=') no-repeat center;
             background-size: cover;
-            transform: rotate(180deg)
+            transform: rotate(180deg);
+            flex-shrink: 0;
         }
 
         .footer {
@@ -100,9 +110,11 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            flex-shrink: 0;
         }
 
         .marquee-container {
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             background: #f8d210;
@@ -117,6 +129,12 @@
             background: #f8d210;
             font-weight: bold;
             position: relative;
+        }
+
+        .site-content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .marquee-content {
@@ -215,6 +233,10 @@
             transition: transform 0.2s;
         }
 
+        #main-content {
+            flex-grow: 1;
+        }
+
         .pdf-icon:hover {
             transform: scale(1.1);
         }
@@ -263,7 +285,10 @@
         </div>
     </div>
 
+    <div class="site-content-wrapper">
     <div id="main-content">
+        </div>
+        <div class="wave"></div>
         </div>
 
     <div id="custom-alert" class="alert-overlay">
@@ -289,9 +314,6 @@
             </div>
         </div>
     </div>
-
-
-    <div class="wave"></div>
 
     <footer class="text-light py-4 footer">
         <div class="container">
