@@ -92,6 +92,7 @@
             height: 50px;
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwMCA1MCI+PHBhdGggZmlsbD0iIzAzMDk0QiIgZD0iTTAgMjVoMjAwYzE1MCAwIDI4MC0yNCA0MDAtMjUgMTIwIDAgMjUwIDI1IDQwMCAyNSBoMjAwVjBIMFYyNXoiPjwvcGF0aD48L3N2Zz4=') no-repeat center;
             background-size: cover;
+            transform: rotate(180deg)
         }
 
         .footer {
@@ -229,7 +230,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#" data-target="home-carousel-partial.html">
+            <a class="navbar-brand d-flex align-items-center" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html">
                 <img src="logo/school-logo-trans.png" alt="School Logo" style="height: 60px; margin-right: 10px;">
                 <div class="stacked-text flex-grow-1">
                     <span class="large-text d-block">Nathan Central School</span>
@@ -240,7 +241,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" data-target="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/facilities.html">Facilities</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/fees.html">Fees</a></li>
@@ -340,7 +341,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const mainContentDiv = document.getElementById('main-content');
             const navLinks = document.querySelectorAll('.nav-link[data-target]');
-            const brandLink = document.querySelector('.navbar-brand[data-target="home-carousel-partial.html"]');
+            const brandLink = document.querySelector('.navbar-brand[data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html"]');
 
             // Function to initialize carousel after it's loaded
             function initializeCarousel() {
@@ -367,7 +368,7 @@
                     attachDynamicEventListeners();
 
                     // Initialize carousel if home content is loaded
-                    if (target === 'home-carousel-partial.html') {
+                    if (target === 'https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html') {
                         initializeCarousel();
                     }
 
@@ -435,11 +436,11 @@
             // Add event listener for the brand logo to go home
             brandLink.addEventListener('click', function (e) {
                 e.preventDefault();
-                loadContent('home-carousel-partial.html');
+                loadContent('https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html');
             });
 
             // Load home content initially when the page loads
-            loadContent('home-carousel-partial.html');
+            loadContent('https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html');
         });
     </script>
 </body>
