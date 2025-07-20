@@ -13,18 +13,34 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+    <script id="app-routes" type="application/json">
+    {
+         "#home": "https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html",
+         "#about": "https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/about.html",
+         "#facilities": "https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/facilities.html",
+         "#fees": "https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/fees.html",
+         "#disclosure": "https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/disclosure.html",
+         "#gallery": "https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/gallery.html"
+    }
+    </script>
 
-         html {
-            height: 100%; /* Ensure html takes full height */
+    <style>
+        html {
+            height: 100%;
+            /* Ensure html takes full height */
         }
 
         body {
-             display: flex; /* Make body a flex container */
-            flex-direction: column; /* Stack children vertically */
-            min-height: 100vh; /* Body should be at least viewport height */
-            margin: 0; /* Remove default body margin */
-            padding-top: 85px; /* Keep existing padding for fixed nav */
+            display: flex;
+            /* Make body a flex container */
+            flex-direction: column;
+            /* Stack children vertically */
+            min-height: 100vh;
+            /* Body should be at least viewport height */
+            margin: 0;
+            /* Remove default body margin */
+            padding-top: 85px;
+            /* Keep existing padding for fixed nav */
             font-family: "Be Vietnam Pro", Arial, sans-serif;
             background-color: #F8F9FA;
             color: #555555;
@@ -99,24 +115,33 @@
             font-size: 1rem;
         }
 
-         @media (max-width: 767.98px) {
-        .large-text {
-            font-size: 1.25rem; /* Smaller size for mobile screens */
+        @media (max-width: 767.98px) {
+            .large-text {
+                font-size: 1.25rem;
+                /* Smaller size for mobile screens */
+            }
+
+            /* You might also want to adjust the small-text if it's too big */
+            .small-text {
+                font-size: 0.8rem;
+                /* Example: make it slightly smaller too */
+            }
+
+            .navbar-brand .stacked-text {
+                margin-left: 5px;
+                /* Adjust spacing if needed on small screens */
+            }
+
+            .navbar-brand img {
+                height: 45px !important;
+                /* Make logo slightly smaller too */
+            }
+
+            body {
+                padding-top: 70px;
+                /* Adjust padding for smaller screens */
+            }
         }
-        /* You might also want to adjust the small-text if it's too big */
-        .small-text {
-            font-size: 0.8rem; /* Example: make it slightly smaller too */
-        }
-        .navbar-brand .stacked-text {
-            margin-left: 5px; /* Adjust spacing if needed on small screens */
-        }
-        .navbar-brand img {
-            height: 45px !important; /* Make logo slightly smaller too */
-        }
-        body {
-            padding-top: 70px; /* Adjust padding for smaller screens */
-        }
-    }
 
         .wave {
             position: relative;
@@ -272,10 +297,9 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
                 <img src="logo/school-logo-trans.png" alt="School Logo" style="height: 60px; margin-right: 10px;">
                 <div class="stacked-text flex-grow-1">
                     <span class="large-text d-block">Nathan Central School</span>
@@ -286,12 +310,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/facilities" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/facilities.html">Facilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/fees" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/fees.html">Fees</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/disclosure" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/disclosure.html">Disclosure</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/gallery" data-target="https://raw.githubusercontent.com/suyambu05/nathancs/8cd56a06493c2708c843cedef00f0bc8659e521e/gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fees">Fees</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#disclosure">Disclosure</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                 </ul>
             </div>
         </div>
@@ -309,10 +333,10 @@
     </div>
 
     <div class="site-content-wrapper">
-    <div id="main-content">
+        <div id="main-content">
         </div>
         <div class="wave"></div>
-        </div>
+    </div>
 
     <div id="custom-alert" class="alert-overlay">
         <div class="alert-box">
@@ -385,13 +409,26 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const mainContentDiv = document.getElementById('main-content');
-            const navLinks = document.querySelectorAll('.nav-link[data-target]');
-            const brandLink = document.querySelector('.navbar-brand[data-target="https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html"]');
+            const navLinks = document.querySelectorAll('.nav-link[href]');
+            const brandLink = document.querySelector('.navbar-brand[href="#home"]');
+
+            const appRoutesScript = document.getElementById('app-routes');
+            let routeMap = {}; // Initialize to empty object in case of error
+            if (appRoutesScript) {
+                try {
+                    routeMap = JSON.parse(appRoutesScript.textContent);
+                    console.log("Route Map:", routeMap);
+                    //routeMap[''] = routeMap['home'];
+                } catch (e) {
+                    console.error("Error parsing app-routes JSON:", e);
+                }
+            }
+
 
             // ADD THIS NEW LINE: Get a reference to the Bootstrap collapse element
-        const navbarCollapse = document.getElementById('navbarNav');
-        // Initialize the Bootstrap Collapse object
-        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            const navbarCollapse = document.getElementById('navbarNav');
+            // Initialize the Bootstrap Collapse object
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
 
 
             // Function to initialize carousel after it's loaded
@@ -407,7 +444,15 @@
             // Function to load content
             async function loadContent(target) {
                 try {
-                    const response = await fetch(target);
+                    if (!target || target === '' || target === '#') {
+                        target = '#home'; // Default to home if no target is provided
+                    }
+                    const targetUrl = routeMap[target];
+                    if (!targetUrl) {
+                        showNotFoundPage();
+                        return;
+                    }
+                    const response = await fetch(targetUrl);
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
@@ -419,7 +464,7 @@
                     attachDynamicEventListeners();
 
                     // Initialize carousel if home content is loaded
-                    if (target === 'https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html') {
+                    if (target === '#home') {
                         initializeCarousel();
                     }
 
@@ -427,6 +472,23 @@
                     console.error('Failed to load content:', error);
                     mainContentDiv.innerHTML = `<p class="text-danger text-center section-padding">Error loading content. Please try again later.</p>`;
                 }
+            }
+
+            function showNotFoundPage() {
+                mainContentDiv.innerHTML = `
+                    <section class="container text-center section-padding">
+                        <h1 class="section-title mb-4">404 - Page Not Found</h1>
+                        <p class="lead mb-4">
+                            We're sorry, the page you are looking for could not be found.
+                        </p>
+                        <div class="mb-4">
+                            <i class="fas fa-exclamation-triangle fa-5x" style="color: #f8d210;"></i>
+                        </div>
+                        <p>
+                            It looks like the link might be broken or the page may have been removed.
+                            Please check the URL or try navigating back to the <br><br> <a href="#home" class="btn btn-primary" style="background-color: #f8d210;">Home Page</a>
+                        </p>
+                    </section>`;
             }
 
             // Function to attach event listeners to dynamically loaded content
@@ -477,29 +539,32 @@
 
             // Add event listeners to navigation links
             navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = this.getAttribute('data-target');
-                    loadContent(target);
-
-                    if (navbarCollapse.classList.contains('show')) {
-                    bsCollapse.hide();
-                }
-                });
+                link.addEventListener('click', fetchAndLoad);
             });
 
             // Add event listener for the brand logo to go home
-            brandLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                loadContent('https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html');
+            brandLink.addEventListener('click', fetchAndLoad);
+
+            function fetchAndLoad(e) {
+                //e.preventDefault();
+                const target = this.getAttribute('href');
+                loadContent(target);
 
                 if (navbarCollapse.classList.contains('show')) {
-                bsCollapse.hide();
+                    bsCollapse.hide();
+                }
             }
-            });
 
+            function handleLocationChange() {
+                const currentHash = window.location.hash || '#home';
+                loadContent(currentHash);
+            }
+
+            window.addEventListener('hashchange', handleLocationChange);
+
+            currentRoute = window.location.hash || '#home';
             // Load home content initially when the page loads
-            loadContent('https://raw.githubusercontent.com/suyambu05/nathancs/206259c9a7fc9081f9875d4d34be415ed883590b/home.html');
+            loadContent(currentRoute);
         });
     </script>
 </body>
