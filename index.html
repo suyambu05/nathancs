@@ -13,9 +13,34 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script id="app-routes" type="application/json">
+    {
+         "#home": "https://raw.githubusercontent.com/suyambu05/nathancs/main/home.html",
+         "#about": "https://raw.githubusercontent.com/suyambu05/nathancs/main/about.html",
+         "#facilities": "https://raw.githubusercontent.com/suyambu05/nathancs/main/facilities.html",
+         "#fees": "https://raw.githubusercontent.com/suyambu05/nathancs/main/fees.html",
+         "#disclosure": "https://raw.githubusercontent.com/suyambu05/nathancs/main/disclosure.html",
+         "#gallery": "https://raw.githubusercontent.com/suyambu05/nathancs/main/gallery.html"
+    }
+    </script>
+
     <style>
+        html {
+            height: 100%;
+            /* Ensure html takes full height */
+        }
+
         body {
-            padding-top: 90px;
+            display: flex;
+            /* Make body a flex container */
+            flex-direction: column;
+            /* Stack children vertically */
+            min-height: 100vh;
+            /* Body should be at least viewport height */
+            margin: 0;
+            /* Remove default body margin */
+            padding-top: 85px;
+            /* Keep existing padding for fixed nav */
             font-family: "Be Vietnam Pro", Arial, sans-serif;
             background-color: #F8F9FA;
             color: #555555;
@@ -29,43 +54,11 @@
             height: 100%;
             width: 100%;
             object-fit: contain;
-            /* Ensures the whole image is visible */
             background-color: black;
-            /* Adds a background if the image has gaps */
         }
 
-        .hero {
-            background: url('school-banner.jpg') no-repeat center center/cover;
-            height: 400px;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* Hero Section Background with Text Styling */
-        .hero-section {
-            background-color: #2E8B57;
-            /* Green Background for Hero Section */
-            padding: 50px 0;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-section h1 {
-            background: #FFA500;
-            /* Orange Background for Text */
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        .hero-section p {
-            background: rgba(255, 255, 255, 0.2);
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 5px;
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .navbar {
@@ -75,6 +68,13 @@
         .navbar-brand,
         .nav-link {
             color: white !important;
+        }
+
+        .nav-link.active-link {
+            background-color: #f8d210;
+            border-radius: 5px;
+            color: #03094B !important;
+            padding: 8px 15px;
         }
 
         .btn-primary {
@@ -88,12 +88,6 @@
 
         .section-title {
             color: #03094B;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
         }
 
         .section-padding {
@@ -115,30 +109,55 @@
         .stacked-text {
             display: flex;
             flex-direction: column;
-            /* Stack spans vertically */
             align-items: left;
-            /* Center the text */
             text-align: left;
         }
 
         .large-text {
             font-size: 2rem;
-            /* Bigger font */
             font-weight: bold;
         }
 
         .small-text {
             font-size: 1rem;
-            /* Smaller font */
         }
 
-        /* Wave Separator */
+        @media (max-width: 767.98px) {
+            .large-text {
+                font-size: 1.25rem;
+                /* Smaller size for mobile screens */
+            }
+
+            /* You might also want to adjust the small-text if it's too big */
+            .small-text {
+                font-size: 0.8rem;
+                /* Example: make it slightly smaller too */
+            }
+
+            .navbar-brand .stacked-text {
+                margin-left: 5px;
+                /* Adjust spacing if needed on small screens */
+            }
+
+            .navbar-brand img {
+                height: 45px !important;
+                /* Make logo slightly smaller too */
+            }
+
+            body {
+                padding-top: 70px;
+                /* Adjust padding for smaller screens */
+            }
+        }
+
         .wave {
             position: relative;
             width: 100%;
             height: 50px;
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwMCA1MCI+PHBhdGggZmlsbD0iIzAzMDk0QiIgZD0iTTAgMjVoMjAwYzE1MCAwIDI4MC0yNCA0MDAtMjUgMTIwIDAgMjUwIDI1IDQwMCAyNSBoMjAwVjBIMFYyNXoiPjwvcGF0aD48L3N2Zz4=') no-repeat center;
             background-size: cover;
+            transform: rotate(180deg);
+            flex-shrink: 0;
         }
 
         .footer {
@@ -146,13 +165,14 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            flex-shrink: 0;
         }
 
         .marquee-container {
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             background: #f8d210;
-            /* Background for scrolling text */
             font-weight: bold;
             overflow: hidden;
         }
@@ -164,6 +184,12 @@
             background: #f8d210;
             font-weight: bold;
             position: relative;
+        }
+
+        .site-content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .marquee-content {
@@ -182,15 +208,12 @@
 
         .static-text {
             flex-shrink: 0;
-            /* Keeps "Latest Update:" static */
             background: #03094B;
-            /* Different background color */
             color: white;
             padding: 10px 15px;
             font-weight: bold;
             position: relative;
             clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-            /* Creates the slanted right edge */
         }
 
         @keyframes marquee {
@@ -198,14 +221,12 @@
                 transform: translateX(100vw);
             }
 
-            /* Start fully off-screen (100% viewport width) */
             to {
                 transform: translateX(-100%);
             }
-
-            /* Move fully left */
         }
 
+        /* Alert Overlay and Box styles */
         .alert-overlay {
             display: none;
             position: fixed;
@@ -216,6 +237,7 @@
             background: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
 
         .alert-box {
@@ -228,7 +250,6 @@
             position: relative;
         }
 
-        /* Close Button (X) */
         .close-btn {
             position: absolute;
             top: 10px;
@@ -240,7 +261,7 @@
             cursor: pointer;
         }
 
-        /* Style for icon container */
+        /* Icon styles for facilities */
         .icon-circle {
             display: flex;
             justify-content: center;
@@ -255,16 +276,20 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /* Hover effect - enlarges the icon */
         .icon-circle:hover {
             transform: scale(1.2);
         }
 
+        /* PDF Icon styles for disclosure */
         .pdf-icon {
             font-size: 48px;
             color: #dc3545;
             cursor: pointer;
             transition: transform 0.2s;
+        }
+
+        #main-content {
+            flex-grow: 1;
         }
 
         .pdf-icon:hover {
@@ -279,11 +304,9 @@
 </head>
 
 <body>
-
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
                 <img src="logo/school-logo-trans.png" alt="School Logo" style="height: 60px; margin-right: 10px;">
                 <div class="stacked-text flex-grow-1">
                     <span class="large-text d-block">Nathan Central School</span>
@@ -294,7 +317,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
                     <li class="nav-item"><a class="nav-link" href="#fees">Fees</a></li>
@@ -305,49 +328,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Carousel -->
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
-                aria-current="true"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="banner/banner1.jpg" alt="School Image 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Welcome to Our School</h1>
-                    <p>Providing quality education for a brighter future.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="banner/banner2.jpg" alt="School Image 2">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Engaging Learning Environment</h1>
-                    <p>Empowering students to achieve excellence.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="banner/banner3.jpg" alt="School Image 3">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Building the Future</h1>
-                    <p>Innovative education for lifelong success.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
     <div class="marquee-container">
-        <span class="static-text">Latest Update &nbsp;&nbsp;</span>
+        <span class="static-text">Latest Update   </span>
         <div class="marquee">
             <div class="marquee-content">
                 Upcoming PTM event on 25th April 2025, Welcome dear parents!
@@ -357,95 +339,12 @@
         </div>
     </div>
 
-
-    <!-- About Section -->
-    <section id="about" class="section-padding">
-        <div class="container text-center">
-            <h2>About Us</h2>
-            <p>Welcome to Nathan Central School, your premier educational institution nestled near Koodankulam Village!
-                🏫 With a legacy of excellence spanning two years, we're dedicated to nurturing young minds and
-                fostering holistic development. Our state-of-the-art facilities, experienced faculty, and innovative
-                curriculum ensure a vibrant learning environment for students to thrive. From academics to
-                extracurricular activities, we prioritize individual growth and academic achievement. Join us in shaping
-                the leaders of tomorrow!</p>
+    <div class="site-content-wrapper">
+        <div id="main-content">
         </div>
-    </section>
+        <div class="wave"></div>
+    </div>
 
-    <div class="wave"></div>
-
-    <!-- Campus Section -->
-    <section id="facilities" class="section-padding">
-        <div class="container text-center">
-            <h2 style="padding-bottom: 20px;">Campus and Facility</h2>
-            <div class="row">
-                <!-- Infrastructure -->
-                <div class="col-md-4 more-link" data-title="Infrastructure">
-                    <div class="icon-circle">
-                        <i class="fa fa-building fa-2x"></i>
-                    </div>
-                    <h5 style="padding-top: 10px;">Infrastructure</h5>
-                    <p>Our campus boasts modern classrooms, labs, and comfortable student housing.
-                        <a href="#" class="more-link" data-title="Infrastructure">more..</a>
-                    </p>
-
-                </div>
-                <!-- Transport -->
-                <div class="col-md-4 more-link" data-title="Transport">
-                    <div class="icon-circle">
-                        <i class="fa fa-bus fa-2x"></i>
-                    </div>
-                    <h5 style="padding-top: 10px;">Transport</h5>
-                    <p>Convenient transport options ensure easy access to the campus from all parts of the city.
-                        <a href="#" class="more-link" data-title="Transport">more..</a>
-                    </p>
-                </div>
-                <!-- Sports -->
-                <div class="col-md-4 more-link" data-title="Sports">
-                    <div class="icon-circle">
-                        <i class="fa fa-futbol fa-2x"></i>
-                    </div>
-                    <h5 style="padding-top: 10px;">Sports</h5>
-                    <p>We provide state-of-the-art sports facilities for a wide variety of games and activities.
-                        <a href="#" class="more-link" data-title="Sports">more..</a>
-                    </p>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <!-- Well-Qualified Faculty -->
-                <div class="col-md-4 more-link" data-title="Well-Qualified Faculty">
-                    <div class="icon-circle">
-                        <i class="fa fa-chalkboard-teacher fa-2x"></i>
-                    </div>
-                    <h5 style="padding-top: 10px;">Well-Qualified Faculty</h5>
-                    <p>Our experienced and dedicated faculty members ensure high-quality education and guidance.
-                        <a href="#" class="more-link" data-title="Well-Qualified Faculty">more..</a>
-                    </p>
-                </div>
-                <!-- Library -->
-                <div class="col-md-4 more-link" data-title="Library">
-                    <div class="icon-circle">
-                        <i class="fa fa-book fa-2x"></i>
-                    </div>
-                    <h5 style="padding-top: 10px;">Library</h5>
-                    <p>A vast collection of books, research papers, and digital resources for students and faculty.
-                        <a href="#" class="more-link" data-title="Library">more..</a>
-                    </p>
-                </div>
-                <!-- Cafeteria -->
-                <div class="col-md-4 more-link" data-title="Playground & Outdoor Activities">
-                    <div class="icon-circle">
-                        <i class="fa fa-tree fa-2x"></i>
-                    </div>
-                    <h5 style="padding-top: 10px;">Playground & Outdoor Activities</h5>
-                    <p>Large playgrounds and dedicated spaces for outdoor activities and physical education.
-                        <a href="#" class="more-link" data-title="Playground & Outdoor Activities">more..</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Borderless Alert (Popup) -->
     <div id="custom-alert" class="alert-overlay">
         <div class="alert-box">
             <button class="close-btn" onclick="closeAlert()">✖</button>
@@ -453,499 +352,12 @@
         </div>
     </div>
 
-    <div class="wave"></div>
-
-
-    <!-- Fees Structure Section -->
-    <section id="fees" class="section-padding">
-        <div class="container text-center">
-            <h2>Fees Structure (2025-26)</h2>
-            <h5>1st term Fee structure</h5>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Grade</th>
-                            <th>Book Fee</th>
-                            <th>Extra Curricular Fee</th>
-                            <th>1st term Tuition Fee</th>
-                            <th>Total Fees</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>LKG</b></td>
-                            <td>₹3400</td>
-                            <td>-</td>
-                            <td>₹7000</td>
-                            <td>₹10400</td>
-                        </tr>
-                        <tr>
-                            <td><b>UKG</b></td>
-                            <td>₹3700</td>
-                            <td>-</td>
-                            <td>₹8000</td>
-                            <td>₹11700</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 1</b></td>
-                            <td>₹4400</td>
-                            <td>₹500</td>
-                            <td>₹8200</td>
-                            <td>₹13100</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 2</b></td>
-                            <td>₹4600</td>
-                            <td>₹500</td>
-                            <td>₹8700</td>
-                            <td>₹13800</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 3</b></td>
-                            <td>₹4800</td>
-                            <td>₹500</td>
-                            <td>₹9200</td>
-                            <td>₹14500</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 4</b></td>
-                            <td>₹4800</td>
-                            <td>₹500</td>
-                            <td>₹9500</td>
-                            <td>₹14800</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 5</b></td>
-                            <td>₹4800</td>
-                            <td>₹500</td>
-                            <td>₹9800</td>
-                            <td>₹15100</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 6</b></td>
-                            <td>₹4000</td>
-                            <td>₹500</td>
-                            <td>₹10300</td>
-                            <td>₹14800</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 7</b></td>
-                            <td>₹4000</td>
-                            <td>₹500</td>
-                            <td>₹10500</td>
-                            <td>₹15000</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 8</b></td>
-                            <td>₹4200</td>
-                            <td>₹500</td>
-                            <td>₹10800</td>
-                            <td>₹15500</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h5>2nd term Fee structure</h5>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Grade</th>
-                            <th>Extra Curricular Fee </th>
-                            <th>2nd term Tuition Fee</th>
-                            <th>Total Fees</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>LKG</b></td>
-                            <td>-</td>
-                            <td>₹6000</td>
-                            <td>₹6000</td>
-                        </tr>
-                        <tr>
-                            <td><b>UKG</b></td>
-                            <td>-</td>
-                            <td>₹6400</td>
-                            <td>₹6400</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 1</b></td>
-                            <td>₹500</td>
-                            <td>₹7000</td>
-                            <td>₹7500</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 2</b></td>
-                            <td>₹500</td>
-                            <td>₹7200</td>
-                            <td>₹7700</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 3</b></td>
-                            <td>₹500</td>
-                            <td>₹7400</td>
-                            <td>₹7900</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 4</b></td>
-                            <td>₹500</td>
-                            <td>₹7600</td>
-                            <td>₹8100</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 5</b></td>
-                            <td>₹500</td>
-                            <td>₹7800</td>
-                            <td>₹8300</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 6</b></td>
-                            <td>₹500</td>
-                            <td>₹8000</td>
-                            <td>₹8500</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 7</b></td>
-                            <td>₹500</td>
-                            <td>₹8200</td>
-                            <td>₹8700</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 8</b></td>
-                            <td>₹500</td>
-                            <td>₹8400</td>
-                            <td>₹8900</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h5>3rd term Fee structure</h5>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Grade</th>
-                            <th>Extra Curricular Fee </th>
-                            <th>3rd term Tuition Fee</th>
-                            <th>Total Fees</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>LKG</b></td>
-                            <td>-</td>
-                            <td>₹5200</td>
-                            <td>₹5200</td>
-                        </tr>
-                        <tr>
-                            <td><b>UKG</b></td>
-                            <td>-</td>
-                            <td>₹5600</td>
-                            <td>₹5600</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 1</b></td>
-                            <td>₹500</td>
-                            <td>₹6000</td>
-                            <td>₹6500</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 2</b></td>
-                            <td>₹500</td>
-                            <td>₹6200</td>
-                            <td>₹6700</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 3</b></td>
-                            <td>₹500</td>
-                            <td>₹6400</td>
-                            <td>₹6900</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 4</b></td>
-                            <td>₹500</td>
-                            <td>₹6600</td>
-                            <td>₹7100</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 5</b></td>
-                            <td>₹500</td>
-                            <td>₹7000</td>
-                            <td>₹7500</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 6</b></td>
-                            <td>₹500</td>
-                            <td>₹7200</td>
-                            <td>₹7700</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 7</b></td>
-                            <td>₹500</td>
-                            <td>₹7400</td>
-                            <td>₹7900</td>
-                        </tr>
-                        <tr>
-                            <td><b>Grade 8</b></td>
-                            <td>₹500</td>
-                            <td>₹7600</td>
-                            <td>₹8100</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <div class="wave"></div>
-
-    <section id="disclosure" class="section-padding">
-        <div class="container text-center">
-            <h2>Mandatory Disclosure</h2>
-            <h5> &nbsp</h5>
-            <h5>General Information</h5>
-            <div class="table-responsive" align="left">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>SL NO</th>
-                            <th>INFORMATION</th>
-                            <th>DETAILS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>1</b></td>
-                            <td>NAME OF THE SCHOOL</td>
-                            <td>NATHAN CENTRAL SCHOOL</td>
-                        </tr>
-                        <tr>
-                            <td><b>2</b></td>
-                            <td>AFFILIATION NO.(IF APPLICABLE)</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><b>3</b></td>
-                            <td>SCHOOL CODE (IF APPLICABLE)</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><b>4</b></td>
-                            <td>COMPLETE ADDRESS WITH PIN CODE</td>
-                            <td>ANJUGRAMAM,, TIRUCHENDUR MAIN ROAD,, NEAR VAIRAVIKINARU
-                                VILAKKU, , TIRUNELVELI, TAMILNADU - 627106</td>
-                        </tr>
-                        <tr>
-                            <td><b>5</b></td>
-                            <td>PRINCIPAL NAME</td>
-                            <td>Mrs. J AROCKIA AJITHA</td>
-                        </tr>
-                        <tr>
-                            <td><b>6</b></td>
-                            <td>PRINCIPAL QUALIFICATION</td>
-                            <td>M.COM, B.ED, M.PHIL</td>
-                        </tr>
-                        <tr>
-                            <td><b>7</b></td>
-                            <td>SCHOOL EMAIL ID</td>
-                            <td>nathancentralschool@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><b>8</b></td>
-                            <td>CONTACT DETAILS (LANDLINE/MOBILE)</td>
-                            <td>000000000000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h5> &nbsp</h5>
-            <h5>Staff (Teaching)</h5>
-            <div class="table-responsive" align="left">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>SL NO</th>
-                            <th>INFORMATION</th>
-                            <th>DETAILS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>1</b></td>
-                            <td>PRINCIPAL</td>
-                            <td>Mrs. J AROCKIA AJITHA</td>
-                        </tr>
-                        <tr>
-                            <td><b>2</b></td>
-                            <td>TOTAL NO. OF TEACHERS</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td><b></b></td>
-                            <td>PGT</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td><b></b></td>
-                            <td>TGT</td>
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td><b></b></td>
-                            <td>PRT</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td><b>3</b></td>
-                            <td>TEACHERS SECTION RATIO</td>
-                            <td>1.1.5</td>
-                        </tr>
-                        <tr>
-                            <td><b>4</b></td>
-                            <td>DETAILS OF SPECIAL EDUCATOR</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td><b>5</b></td>
-                            <td>DETAILS OF COUNSELLOR AND WELLNESS TEACHER</td>
-                            <td>1</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h5> &nbsp</h5>
-            <h5>School Infrastructure</h5>
-            <div class="table-responsive" align="left">
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>SL NO</th>
-                            <th>INFORMATION</th>
-                            <th>DETAILS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><b>1</b></td>
-                            <td>TOTAL CAMPUS AREA OF THE SCHOOL (IN SQ MTR)</td>
-                            <td>6000</td>
-                        </tr>
-                        <tr>
-                            <td><b>2</b></td>
-                            <td>NO. AND SIZE OF THE CLASS ROOMS (IN SQ MTR)</td>
-                            <td>12 & 47</td>
-                        </tr>
-                        <tr>
-                            <td><b>3</b></td>
-                            <td>NO. AND SIZE OF LABORATORIES INCLUDING COMPUTER LABS (IN SQ
-                                MTR)</td>
-                            <td>4 & 56</td>
-                        </tr>
-                        <tr>
-                            <td><b>4</b></td>
-                            <td>INTERNET FACILITY</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td><b>5</b></td>
-                            <td>NO. OF GIRLS TOILETS</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td><b>6</b></td>
-                            <td>NO. OF BOYS TOILETS</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td><b>7</b></td>
-                            <td>LINK OF YOUTUBE VIDEO OF THE INSPECTION OF SCHOOL COVERING THE
-                                INFRASTRUCTURE OF THE SCHOOL</td>
-                            <td><a href="#gallery">Gallery</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h5> &nbsp</h5>
-            <h5>Documents and Information</h5>
-            <div class="row justify-content-center">
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Trust Document" data-doc-url="docs/trust.pdf"></i>
-                    <div class="mt-2">Trust Document</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="NOC" data-doc-url="docs/noc.pdf"></i>
-                    <div class="mt-2">NOC</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Recognition Certificate" data-doc-url="docs/recognition.pdf"></i>
-                    <div class="mt-2">Recognition Certificate</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Building Stability Certificate" data-doc-url="docs/stability.pdf"></i>
-                    <div class="mt-2">Building Stability Certificate</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Fire Safety Certificate" data-doc-url="docs/fire-safety.pdf"></i>
-                    <div class="mt-2">Fire Safety Certificate</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Sanitary Certificate" data-doc-url="docs/sanitary.pdf"></i>
-                    <div class="mt-2">Sanitary Certificate</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Fee Structure" data-doc-url="docs/fees.pdf"></i>
-                    <div class="mt-2">Fee Structure</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Annual Academic Calender" data-doc-url="docs/calender.pdf"></i>
-                    <div class="mt-2">Annual Academic Calender</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="School Management Committee" data-doc-url="docs/smc.pdf"></i>
-                    <div class="mt-2">School Management Committee</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Parents Teachers Association" data-doc-url="docs/pta.pdf"></i>
-                    <div class="mt-2">Parents Teachers Association</div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pdf-item">
-                    <i class="fa fa-file-pdf pdf-icon view-pdf-btn" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                        data-doc-name="Water Test Report" data-doc-url="docs/water.pdf"></i>
-                    <div class="mt-2">Water Test Report</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal -->
     <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="pdfModalLabel">PDF Document</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <iframe id="pdfViewer" src="" width="100%" height="600px" class="border rounded"></iframe>
@@ -957,67 +369,9 @@
         </div>
     </div>
 
-    <div class="wave"></div>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section-padding">
-        <div class="container text-center">
-            <h2>Gallery</h2>
-            <div class="row gallery">
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal1.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal2.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal3.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal4.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal5.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal6.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal7.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal8.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal9.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal10.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal11.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal12.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal13.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal14.jpg" class="img-fluid">
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="gallery/gal15.jpg" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <footer class="text-light py-4 footer">
         <div class="container">
             <div class="row">
-                <!-- Contact Info -->
                 <div class="col-md-4">
                     <h5>Contact Us</h5>
                     <ul class="list-unstyled">
@@ -1032,7 +386,6 @@
                     </ul>
                 </div>
 
-                <!-- Google Map -->
                 <div class="col-md-4">
                     <h5>Our Location</h5>
                     <iframe
@@ -1041,7 +394,6 @@
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
-                <!-- Social Media -->
                 <div class="col-md-4">
                     <h5>Follow Us</h5>
                     <a href="https://www.facebook.com/nathanschoolkoodal" target="_blank" class="text-light me-3">
@@ -1055,51 +407,185 @@
 
             <hr class="bg-light">
             <div class="text-center">
-                &copy; 2025 Nathan Central School | All Rights Reserved
+                © 2025 Nathan Central School | All Rights Reserved
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JavaScript Code -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const moreLinks = document.querySelectorAll(".more-link");
-            const alertBox = document.getElementById("custom-alert");
-            const alertTitle = document.getElementById("alert-title");
+            const mainContentDiv = document.getElementById('main-content');
+            const navLinks = document.querySelectorAll('.nav-link[href]');
+            const brandLink = document.querySelector('.navbar-brand[href="#home"]');
 
-            moreLinks.forEach(link => {
-                link.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    alertTitle.textContent = this.getAttribute("data-title");
-                    alertBox.style.display = "flex";
+            const appRoutesScript = document.getElementById('app-routes');
+            let routeMap = {}; // Initialize to empty object in case of error
+            if (appRoutesScript) {
+                try {
+                    routeMap = JSON.parse(appRoutesScript.textContent);
+                    console.log("Route Map:", routeMap);
+                    //routeMap[''] = routeMap['home'];
+                } catch (e) {
+                    console.error("Error parsing app-routes JSON:", e);
+                }
+            }
+
+
+            // ADD THIS NEW LINE: Get a reference to the Bootstrap collapse element
+            const navbarCollapse = document.getElementById('navbarNav');
+            // Initialize the Bootstrap Collapse object
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+
+            // Function to initialize carousel after it's loaded
+            function initializeCarousel() {
+                const heroCarouselElement = document.getElementById('heroCarousel');
+                if (heroCarouselElement) {
+                    new bootstrap.Carousel(heroCarouselElement, {
+                        interval: 5000
+                    });
+                }
+            }
+
+            // Function to load content
+            async function loadContent(target) {
+                try {
+                    if (!target || target === '' || target === '#') {
+                        target = '#home'; // Default to home if no target is provided
+                    }
+                    const targetUrl = routeMap[target];
+                    if (!targetUrl) {
+                        showNotFoundPage();
+                        return;
+                    }
+                    const response = await fetch(targetUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const content = await response.text();
+                    mainContentDiv.innerHTML = content;
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+
+                    // Re-attach event listeners for dynamically loaded content
+                    attachDynamicEventListeners();
+
+                    // Initialize carousel if home content is loaded
+                    if (target === '#home') {
+                        initializeCarousel();
+                    }
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-link');
+                    });
+
+                    // Add 'active-link' to the currently active link
+                    const activeLink = document.querySelector(`.nav-link[href="${target}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active-link');
+                    }
+
+                } catch (error) {
+                    console.error('Failed to load content:', error);
+                    mainContentDiv.innerHTML = `<p class="text-danger text-center section-padding">Error loading content. Please try again later.</p>`;
+                }
+            }
+
+            function showNotFoundPage() {
+                navLinks.forEach(link => {
+                        link.classList.remove('active-link');
+                    });
+                mainContentDiv.innerHTML = `
+                    <section class="container text-center section-padding">
+                        <h1 class="section-title mb-4">404 - Page Not Found</h1>
+                        <p class="lead mb-4">
+                            We're sorry, the page you are looking for could not be found.
+                        </p>
+                        <div class="mb-4">
+                            <i class="fas fa-exclamation-triangle fa-5x" style="color: #f8d210;"></i>
+                        </div>
+                        <p>
+                            It looks like the link might be broken or the page may have been removed.
+                            Please check the URL or try navigating back to the <br><br> <a href="#home" class="btn btn-primary" style="background-color: #f8d210;">Home Page</a>
+                        </p>
+                    </section>`;
+            }
+
+            // Function to attach event listeners to dynamically loaded content
+            function attachDynamicEventListeners() {
+                // For Facilities section (custom-alert)
+                const moreLinks = document.querySelectorAll("#main-content .more-link");
+                moreLinks.forEach(link => {
+                    link.removeEventListener("click", handleMoreLinkClick); // Prevent duplicate listeners
+                    link.addEventListener("click", handleMoreLinkClick);
                 });
-            });
 
-            // Close alert when pressing "Esc"
+                // For Disclosure section (PDF viewer)
+                const pdfButtons = document.querySelectorAll("#main-content .view-pdf-btn");
+                pdfButtons.forEach(button => {
+                    button.removeEventListener('click', handlePdfButtonClick); // Prevent duplicate listeners
+                    button.addEventListener('click', handlePdfButtonClick);
+                });
+            }
+
+            // Event handler for Facilities "more..." links
+            function handleMoreLinkClick(event) {
+                event.preventDefault();
+                const alertBox = document.getElementById("custom-alert");
+                const alertTitle = document.getElementById("alert-title");
+                alertTitle.textContent = this.getAttribute("data-title");
+                alertBox.style.display = "flex";
+            }
+
+            // Event handler for Disclosure PDF buttons
+            function handlePdfButtonClick() {
+                const docName = this.getAttribute('data-doc-name');
+                const docUrl = this.getAttribute('data-doc-url');
+                document.getElementById('pdfModalLabel').textContent = docName;
+                document.getElementById('pdfViewer').src = docUrl;
+            }
+
+            // Close alert function (accessible globally)
+            window.closeAlert = function () {
+                document.getElementById("custom-alert").style.display = "none";
+            };
+
+            // Close alert on Escape key
             document.addEventListener("keydown", function (event) {
                 if (event.key === "Escape") {
                     closeAlert();
                 }
             });
-        });
 
-        document.querySelectorAll('.view-pdf-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const docName = this.getAttribute('data-doc-name');
-                const docUrl = this.getAttribute('data-doc-url');
-
-                document.getElementById('pdfModalLabel').textContent = docName;
-                document.getElementById('pdfViewer').src = docUrl;
-                //document.getElementById('downloadLink').href = docUrl;
-                //document.getElementById('downloadLink').download = docName + ".pdf";
+            // Add event listeners to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', fetchAndLoad);
             });
+
+            // Add event listener for the brand logo to go home
+            brandLink.addEventListener('click', fetchAndLoad);
+
+            function fetchAndLoad(e) {
+                //e.preventDefault();
+                const target = this.getAttribute('href');
+                loadContent(target);
+
+                if (navbarCollapse.classList.contains('show')) {
+                    bsCollapse.hide();
+                }
+            }
+
+            function handleLocationChange() {
+                const currentHash = window.location.hash || '#home';
+                loadContent(currentHash);
+            }
+
+            window.addEventListener('hashchange', handleLocationChange);
+
+            currentRoute = window.location.hash || '#home';
+            // Load home content initially when the page loads
+            loadContent(currentRoute);
         });
-
-        function closeAlert() {
-            document.getElementById("custom-alert").style.display = "none";
-        }
-
     </script>
 </body>
 
